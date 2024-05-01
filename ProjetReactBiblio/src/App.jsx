@@ -38,13 +38,15 @@ export default App
 import logo from "./assets/logo.png";
 
 import { Outlet } from "react-router-dom";
+import Header from './Components/Header/Header.jsx';
+import Footer from './Components/Footer/Footer.jsx';
 
 function App() {
   return (
     <>
-      <h1>
-      </h1>
+      <Header />
       <Outlet />
+      <Footer />
     </>
   );
 }

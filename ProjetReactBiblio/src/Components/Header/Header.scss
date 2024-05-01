@@ -1,19 +1,60 @@
+@font-face {
+  font-family: "Lato", sans-serif;
+  src: url(Lato-light.ttf);
+}
+
+header.header {
+  display: flex;
+
 
   
-  .logo {
-    height: auto;
-    width: 120px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+  img.logo {
+    width: 125px;
   }
 
-  .button-container {
-    margin-left: auto;
+  nav.nav {
+    display: flex;
+    align-items: center;
   }
   
-  .nav ul li {
-    list-style-type: none;
-    display: inline;
-    margin-right: 20px;
+  ul {
+    display: flex;
+    gap: 20%;
+
   }
+  
+  li {
+    list-style: none;
+    font-family: "Lato", sans-serif;
+    
+    /* text-decoration: none; */
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+
+   
+  }
+
+  a:hover {
+    background-color: black;
+    color: white;
+    filter: drop-shadow(0 0 0.5rem black);
+  }
+  
+  .searchbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+ 
+  .loupe{
+    
+    display: flex;
+    
+  }
+}
+

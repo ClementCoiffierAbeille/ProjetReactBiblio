@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "Lato", sans-serif;
+    src: url(Lato-light.ttf);
+  }
+  
+  footer.footer {
+    margin-top: 40px;
+    display: flex;
+    background-color: black;
+    width: 100%;
+    height: 60px;
+  
+    nav.navfooter {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 40%;
+      padding-left: 10%;
+    }
+    
+    ul {
+      display: flex;
+      gap: 20%;
+  
+    }
+    
+    li {
+      list-style: none;
+      font-family: "Lato", sans-serif;
+      transition: transform .2s;
+      
+    }
+    
+    a {
+      text-decoration: none;
+      color: white;
+      border-radius: 5px;
+      width : 20px;
+      white-space: nowrap;
+      
+        }
+  
+    a:hover {
+      background-color: black;
+      color: white;
+      filter: drop-shadow(0 0 0.5rem black);
+
+    }
+    
+    li:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+  }
+  
+  
