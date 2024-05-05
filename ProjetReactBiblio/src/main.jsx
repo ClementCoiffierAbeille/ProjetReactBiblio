@@ -8,7 +8,6 @@ import router from "./routes/root";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
-console.log("Test");
 root.render(
   <StrictMode>
     <RouterProvider router={router} />

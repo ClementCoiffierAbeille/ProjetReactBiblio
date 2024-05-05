@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button.jsx';
 import logo from '../../assets/logo.png';
@@ -6,29 +7,29 @@ import './Header.scss';
 
 import axios from 'axios';
 
-const Header = () => {
-  
+const Header = ({ onSearchBook }) => {
   const [search, setSearch] = useState('');
-  const [bookData, setData] = useState([]);
 
-  const searchBook=(evt)=>{
-    if(evt.key==='Enter'){
-      
-      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q`+'&maxResults=40')
-      .then((response)=>{
-        console.log(response.data.items);
-        setData(response.data.items);
+  const searchBook = (evt) => {
+    if (evt.key === 'Enter') {
+      searchBooks();
+    }
+  };
+  
+  const searchBooks = () => {
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q` + '&maxResults=5')
+      .then((response) => {
+        onSearchBook(response.data.items); // Passer les données des livres au composant parent
       })
-      .catch((error)=>{
+      .catch((error) => {
         console.log(error);
       });
-    }
   }
-
-
+  
   const handleButtonClick = () => {
-    console.log('Button clicked');
+    searchBooks();
   };
+  
 
   return (
     <header className="header">
@@ -70,5 +71,7 @@ const Header = () => {
   );
 };
 
+
 export default Header;
+
 

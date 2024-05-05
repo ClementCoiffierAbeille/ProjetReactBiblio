@@ -1,31 +1,3 @@
-/* import React from 'react';
-
-const Book = ({book}) => {
-    return(
-        <>
-            {
-                book.map((item)=> {
-                    let thumbnail =item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
-                    return(
-                        <>
-                        <div className="book">
-                            <img src={thumbnail} alt="" />
-                            <div className="bottom">
-                                <h3 className="title">ReactJS</h3>
-                                <p className="amount">&#8377;3290</p>
-                            </div>
-                        </div>
-                        </>
-                    )
-                })
-            }
-        </>
-    ) 
-}
-            
-export default Book;
-*/
-
 import React from 'react';
 
 const Book = ({ book }) => {
