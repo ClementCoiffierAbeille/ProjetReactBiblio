@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css/App.css';
-
-import Slider from '../Components/Slider/Slider.jsx'
+import Slider from '../Components/Slider/Slider.jsx';
 import image1 from '../assets/GalerieArt.jpeg';
 import image2 from '../assets/GaleriePhoto.jpeg';
 import book from '../assets/book.png';
@@ -11,7 +10,7 @@ import Book from '../Components/Book/Book.jsx';
 const IMG = [image1, image2];
 const BOOK = [book, book, book, book, book, book, book];
 
-const Home = ({ bookdata }) => {
+const Home = () => {
 
   return (
     <div className="home">
@@ -23,8 +22,8 @@ const Home = ({ bookdata }) => {
         <div className='horaires'>
           <h2>Horaires : </h2>
           <p>
-            Du Lundi au Vendredi :  8h - 19h<br/>
-            Samedi : 9h - 12h / 13h - 18h<br/>
+            Du Lundi au Vendredi :  8h - 19h<br />
+            Samedi : 9h - 12h / 13h - 18h<br />
             Dimanche : 9h - 12h
           </p>
         </div>
@@ -33,16 +32,17 @@ const Home = ({ bookdata }) => {
         <div className='event'>
           <h2>Événements : </h2>
           <p>
-            Découvrez les temps forts culturels à la Médiathèque de Talence ce mois-ci !<br/>
-            Exposition Artistique “Voyage à travers les Couleurs” : Explorez l'univers captivant de l'art contemporain avec notre exposition mettant en lumière les œuvres vibrantes d'artistes locaux.<br/>
-            Du 10 au 25 février.<br/>
-            Rencontre Littéraire avec l'auteur local Marie Dubois : Rejoignez-nous pour une discussion animée avec l'écrivaine Marie Dubois autour de son dernier roman acclamé par la critique.<br/>           
-            Le 15 février à 18h.<br/>
-            Atelier Créatif pour Enfants “Fabrique ta Propre Histoire” : Stimulez l'imagination de vos enfants avec notre atelier ludique où ils pourront créer et illustrer leur propre histoire.<br/>                                    
+            Découvrez les temps forts culturels à la Médiathèque de Talence ce mois-ci !<br />
+            Exposition Artistique “Voyage à travers les Couleurs” : Explorez l'univers captivant de l'art contemporain avec notre exposition mettant en lumière les œuvres vibrantes d'artistes locaux.<br />
+            Du 10 au 25 février.<br />
+            Rencontre Littéraire avec l'auteur local Marie Dubois : Rejoignez-nous pour une discussion animée avec l'écrivaine Marie Dubois autour de son dernier roman acclamé par la critique.<br />
+            Le 15 février à 18h.<br />
+            Atelier Créatif pour Enfants “Fabrique ta Propre Histoire” : Stimulez l'imagination de vos enfants avec notre atelier ludique où ils pourront créer et illustrer leur propre histoire.<br />
             Le 20 février à 15h.
           </p>
         </div>
         <div className='carousel'>
+          {/* Passer les images directement en tant que props */}
           <Slider images={IMG} />
         </div>
       </div>
@@ -50,49 +50,34 @@ const Home = ({ bookdata }) => {
       <div className='nouveautes'>
         <h2>Nouveautés : </h2>
       </div>
-      <div>
-        <Link className='nouveauteslivres' to="/detail-livre">
-          <img className='book' src={book} alt='book' />
-          <img className='book' src={book} alt='book' />
-          <img className='book' src={book} alt='book' />
-          <img className='book' src={book} alt='book' />
-          <img className='book' src={book} alt='book' />
-          <img className='book' src={book} alt='book' />
-          <img className='book' src={book} alt='book' />
-        </Link>
+      <div className='nouveauteslivres'>
+        {/* Affichez ici vos livres les plus empruntés */}
+        {/* Par exemple, si vous avez une liste de livres les plus empruntés */}
+        {BOOK.map((book, index) => (
+          <img key={index} className='book' src={book} alt='book' />
+        ))}
       </div>
 
       <div className='lesplusempruntes'>
         <h2>Les plus empruntés : </h2>
       </div>
       <div className='nouveauteslivres'>
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
+        {/* Affichez ici vos livres les plus empruntés */}
+        {/* Par exemple, si vous avez une liste de livres les plus empruntés */}
+        {BOOK.map((book, index) => (
+          <img key={index} className='book' src={book} alt='book' />
+        ))}
       </div>
 
       <div className='noscoupsdecoeur'>
         <h2>Nos coups de coeur : </h2>
       </div>
       <div className='nouveauteslivres'>
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-        <img className='book' src={book} alt='book' />
-      </div>
-      <div className="container">
-        {bookdata && bookdata.length > 0 ? (
-          <Book book={bookdata} /> 
-        ) : (
-          <p>Aucune donnée de livre disponible.</p>
-        )}
+        {/* Affichez ici vos coups de cœur */}
+        {/* Par exemple, si vous avez une liste de coups de cœur */}
+        {BOOK.map((book, index) => (
+          <img key={index} className='book' src={book} alt='book' />
+        ))}
       </div>
     </div>
   );
