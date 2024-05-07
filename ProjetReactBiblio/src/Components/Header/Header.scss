@@ -10,7 +10,8 @@ header.header {
   
   img.logo {
     width: 125px;
-    padding-left: 60px;
+    padding-left: 40px;
+    border-radius: 15px;
   }
 
   nav.nav {
@@ -41,7 +42,7 @@ header.header {
   a:hover {
     background-color: whitesmoke;
     color: black;
-    filter: drop-shadow(0 0 0.5rem whitesmoke);
+    filter: drop-shadow(0 0 0.3rem whitesmoke);
   }
   
 }

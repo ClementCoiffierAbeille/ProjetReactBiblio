@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const GestionDesCookies = () => {
-  // État pour gérer l'affichage de la popup
+
   const [showPopup, setShowPopup] = useState(false);
-  // État pour gérer les choix de cookies
+
   const [cookieSettings, setCookieSettings] = useState({
     analytics: false,
     marketing: false,
     preferences: false,
   });
 
-  // Fonction pour enregistrer les choix de cookies
+
   const saveCookieSettings = () => {
-    // Enregistrement des choix dans le stockage local
+
     localStorage.setItem('cookieSettings', JSON.stringify(cookieSettings));
-    // Fermeture de la popup
+
     setShowPopup(false);
   };
 
-  // Fonction pour charger les choix de cookies précédemment enregistrés
+
   const loadCookieSettings = () => {
     const savedSettings = localStorage.getItem('cookieSettings');
     if (savedSettings) {
@@ -27,17 +27,17 @@ const GestionDesCookies = () => {
     }
   };
 
-  // Effet pour charger les choix de cookies au chargement de la page
+
   React.useEffect(() => {
     loadCookieSettings();
   }, []);
 
   return (
     <div>
-      {/* Bouton pour ouvrir la popup */}
+
       <button onClick={() => setShowPopup(true)}>Gérer les cookies</button>
       
-      {/* Contenu de la page */}
+ 
       <h1>Gestion des cookies</h1>
         <p>
             Les cookies sont de petits fichiers texte qui sont stockés sur votre ordinateur ou appareil mobile
@@ -62,7 +62,7 @@ const GestionDesCookies = () => {
             navigateur Web.
         </p>
 
-      {/* Popup pour gérer les cookies */}
+
       {showPopup && (
         <div className="popup">
           <div className="popup-content">

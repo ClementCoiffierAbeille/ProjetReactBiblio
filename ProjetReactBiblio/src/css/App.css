@@ -179,13 +179,13 @@ cursor: pointer;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Assurez-vous que la popup apparaît au-dessus de tout le reste */
+  z-index: 1000; 
 }
-  /* Style de la boîte de dialogue */
+
   .cookie-popup-content {
       background-color: white;
       padding: 20px;

@@ -22,12 +22,11 @@ const Footer = () => {
                     <Link to="/mentions-legales">Mentions Legales</Link>
                 </li>
                 <li>
-                    {/* Utilisation d'un gestionnaire d'événements pour ouvrir la popup */}
+
                     <Link to="#" onClick={() => setShowCookiePopup(true)}>Gestion des cookies</Link>
                 </li>
             </nav>
 
-            {/* Popup pour gérer les cookies */}
             {showCookiePopup && (
                 <div className="cookie-popup">
                     <div className="cookie-popup-content">
