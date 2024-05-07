@@ -1,16 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../css/App.css';
 import Slider from '../Components/Slider/Slider.jsx';
 import image1 from '../assets/GalerieArt.jpeg';
 import image2 from '../assets/GaleriePhoto.jpeg';
-import book from '../assets/book.png';
-import { Link } from 'react-router-dom';
 import Book from '../Components/Book/Book.jsx';
 
 const IMG = [image1, image2];
-const BOOK = [book, book, book, book, book, book, book];
 
 const Home = () => {
+  const [newBooks, setNewBooks] = useState([]);
+  const [popularBooksFirstHalf, setPopularBooksFirstHalf] = useState([]);
+  const [popularBooksSecondHalf, setPopularBooksSecondHalf] = useState([]);
+
+  useEffect(() => {
+    const fetchNewBooks = async () => {
+      try {
+        const response = await axios.get(
+          'https://www.googleapis.com/books/v1/volumes?q=javascript&maxResults=8&orderBy=newest&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q'
+        );
+        setNewBooks(response.data.items);
+      } catch (error) {
+        console.error('Error fetching new books:', error);
+      }
+    };
+
+    const fetchPopularBooksFirstHalf = async () => {
+      try {
+        const response = await axios.get(
+          'https://www.googleapis.com/books/v1/volumes?q=javascript&maxResults=16&orderBy=relevance&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q'
+        );
+        setPopularBooksFirstHalf(response.data.items.slice(0, 8));
+      } catch (error) {
+        console.error('Error fetching first half of popular books:', error);
+      }
+    };
+
+    const fetchPopularBooksSecondHalf = async () => {
+      try {
+        const response = await axios.get(
+          'https://www.googleapis.com/books/v1/volumes?q=javascript&maxResults=16&orderBy=relevance&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q'
+        );
+        setPopularBooksSecondHalf(response.data.items.slice(8));
+      } catch (error) {
+        console.error('Error fetching second half of popular books:', error);
+      }
+    };
+
+    fetchNewBooks();
+    fetchPopularBooksFirstHalf();
+    fetchPopularBooksSecondHalf();
+  }, []);
 
   return (
     <div className="home">
@@ -42,7 +82,6 @@ const Home = () => {
           </p>
         </div>
         <div className='carousel'>
-          {/* Passer les images directement en tant que props */}
           <Slider images={IMG} />
         </div>
       </div>
@@ -51,36 +90,24 @@ const Home = () => {
         <h2>Nouveautés : </h2>
       </div>
       <div className='nouveauteslivres'>
-        {/* Affichez ici vos livres les plus empruntés */}
-        {/* Par exemple, si vous avez une liste de livres les plus empruntés */}
-        {BOOK.map((book, index) => (
-          <img key={index} className='book' src={book} alt='book' />
-        ))}
+        <Book books={newBooks} />
       </div>
 
       <div className='lesplusempruntes'>
         <h2>Les plus empruntés : </h2>
       </div>
       <div className='nouveauteslivres'>
-        {/* Affichez ici vos livres les plus empruntés */}
-        {/* Par exemple, si vous avez une liste de livres les plus empruntés */}
-        {BOOK.map((book, index) => (
-          <img key={index} className='book' src={book} alt='book' />
-        ))}
+        <Book books={popularBooksFirstHalf} />
       </div>
 
       <div className='noscoupsdecoeur'>
-        <h2>Nos coups de coeur : </h2>
+        <h2>Nos coups de cœur : </h2>
       </div>
       <div className='nouveauteslivres'>
-        {/* Affichez ici vos coups de cœur */}
-        {/* Par exemple, si vous avez une liste de coups de cœur */}
-        {BOOK.map((book, index) => (
-          <img key={index} className='book' src={book} alt='book' />
-        ))}
+        <Book books={popularBooksSecondHalf} />
       </div>
     </div>
   );
-};
+}; 
 
 export default Home;
