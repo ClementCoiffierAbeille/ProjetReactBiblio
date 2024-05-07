@@ -5,7 +5,7 @@ const Book = ({ books }) => {
   const navigate = useNavigate();
 
   const handleBookClick = (id) => {
-    // Redirection vers la page de détail du livre avec l'ID du livre
+    
     navigate(`/detail-livre/${id}`);
   };
 

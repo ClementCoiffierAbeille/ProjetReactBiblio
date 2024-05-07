@@ -5,11 +5,12 @@
 
 header.header {
   display: flex;
-
+  background-color: black;
 
   
   img.logo {
     width: 125px;
+    padding-left: 60px;
   }
 
   nav.nav {
@@ -20,19 +21,17 @@ header.header {
   ul {
     display: flex;
     gap: 20%;
-
   }
   
   li {
     list-style: none;
     font-family: "Lato", sans-serif;
     
-    /* text-decoration: none; */
   }
   
   a {
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
     padding: 10px 15px;
     border-radius: 5px;
 
@@ -40,21 +39,10 @@ header.header {
   }
 
   a:hover {
-    background-color: black;
-    color: white;
-    filter: drop-shadow(0 0 0.5rem black);
+    background-color: whitesmoke;
+    color: black;
+    filter: drop-shadow(0 0 0.5rem whitesmoke);
   }
   
-  .searchbar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
- 
-  .loupe{
-    
-    display: flex;
-    
-  }
 }
 

@@ -4,6 +4,10 @@
   src: url(Lora-Regular.ttf);
 }
 
+body {
+  margin: 0px;
+}
+
 .actualite {
   border-radius: 15px;
   border: 2px solid black;
@@ -148,8 +152,9 @@ cursor: pointer;
   display: flex;
   margin-top: 50px;
   margin-left: 80px;
-  width: 130px;
-  height: 190px;
+  width: 120px;
+  height: 180px;
+  border-radius: 10px;
 
 }
 

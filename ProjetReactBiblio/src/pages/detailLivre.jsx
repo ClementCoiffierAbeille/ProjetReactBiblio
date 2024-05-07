@@ -27,7 +27,6 @@ const DetailLivre = () => {
 
   return (
     <div className="detail-livre-container-DL">
-      {/* Affichez les détails du livre ici */}
       {bookDetails && (
         <>
           <div className="book-details-DL">
@@ -35,7 +34,7 @@ const DetailLivre = () => {
             <p className="book-info-DL">Auteur(s): {bookDetails.volumeInfo.authors && bookDetails.volumeInfo.authors.join(', ')}</p>
             <p className="book-info-DL">Date de publication: {bookDetails.volumeInfo.publishedDate}</p>
             <p className="book-info-DL">Pages: {bookDetails.volumeInfo.pageCount}</p>
-            <p className="book-info-DL">Catégorie(s): {bookDetails.volumeInfo.categories && bookDetails.volumeInfo.categories.join(', ')}</p>
+            <p className="book-info-DL">Catégorie(s): {bookDetails.volumeInfo.categories}</p>
             <p className="book-info-DL">Langue: {bookDetails.volumeInfo.language}</p>
           </div>
           <div className="book-cover-DL">

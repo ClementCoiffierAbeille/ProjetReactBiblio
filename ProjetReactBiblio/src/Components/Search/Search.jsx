@@ -14,7 +14,7 @@ const Search = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q&maxResults=10`
+        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q&maxResults=20`
       );
       setSearchResults(response.data.items);
     } catch (error) {
