@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Book from '../Book/Book.jsx';
 import Spinner from '../Spinner/Spinner.jsx';
-
+import './Search.scss';
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
