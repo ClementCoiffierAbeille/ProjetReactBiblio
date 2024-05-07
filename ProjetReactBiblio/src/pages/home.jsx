@@ -1,57 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../css/App.css';
-import Slider from '../Components/Slider/Slider.jsx';
-import image1 from '../assets/GalerieArt.jpeg';
-import image2 from '../assets/GaleriePhoto.jpeg';
-import Book from '../Components/Book/Book.jsx';
+import '../css/App.css'; // Importation du fichier CSS pour le style de l'application
+import Slider from '../Components/Slider/Slider.jsx'; // Importation du composant Slider
+import image1 from '../assets/GalerieArt.jpeg'; // Importation des images pour le slider
+import image2 from '../assets/GaleriePhoto.jpeg'; // Importation des images pour le slider
+import Book from '../Components/Book/Book.jsx'; // Importation du composant Book pour afficher les livres
 
-const IMG = [image1, image2];
+const IMG = [image1, image2]; // Tableau contenant les images pour le slider
 
+// Définition du composant Home
 const Home = () => {
+  // États locaux pour stocker les nouveaux livres, les livres populaires de la première moitié et de la deuxième moitié
   const [newBooks, setNewBooks] = useState([]);
   const [popularBooksFirstHalf, setPopularBooksFirstHalf] = useState([]);
   const [popularBooksSecondHalf, setPopularBooksSecondHalf] = useState([]);
 
+  // Effet de side-effect pour récupérer les données des nouveaux livres et des livres populaires
   useEffect(() => {
+    // Fonction pour récupérer les nouveaux livres depuis l'API Google Books
     const fetchNewBooks = async () => {
       try {
         const response = await axios.get(
           'https://www.googleapis.com/books/v1/volumes?q=javascript&maxResults=8&orderBy=newest&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q'
         );
-        setNewBooks(response.data.items);
+        setNewBooks(response.data.items); // Mise à jour de l'état des nouveaux livres avec les données reçues
       } catch (error) {
-        console.error('Error fetching new books:', error);
+        console.error('Error fetching new books:', error); // Gestion des erreurs lors de la récupération des nouveaux livres
       }
     };
 
+    // Fonction pour récupérer les livres populaires depuis l'API Google Books (première moitié)
     const fetchPopularBooksFirstHalf = async () => {
       try {
         const response = await axios.get(
           'https://www.googleapis.com/books/v1/volumes?q=javascript&maxResults=16&orderBy=relevance&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q'
         );
-        setPopularBooksFirstHalf(response.data.items.slice(0, 8));
+        setPopularBooksFirstHalf(response.data.items.slice(0, 8)); // Mise à jour de l'état des livres populaires (première moitié) avec les données reçues
       } catch (error) {
-        console.error('Error fetching first half of popular books:', error);
+        console.error('Error fetching first half of popular books:', error); // Gestion des erreurs lors de la récupération des livres populaires (première moitié)
       }
     };
 
+    // Fonction pour récupérer les livres populaires depuis l'API Google Books (deuxième moitié)
     const fetchPopularBooksSecondHalf = async () => {
       try {
         const response = await axios.get(
           'https://www.googleapis.com/books/v1/volumes?q=javascript&maxResults=16&orderBy=relevance&key=AIzaSyB-uTvgStlvlaeJEcLtGkT6gxy4rgwMh_Q'
         );
-        setPopularBooksSecondHalf(response.data.items.slice(8));
+        setPopularBooksSecondHalf(response.data.items.slice(8)); // Mise à jour de l'état des livres populaires (deuxième moitié) avec les données reçues
       } catch (error) {
-        console.error('Error fetching second half of popular books:', error);
+        console.error('Error fetching second half of popular books:', error); // Gestion des erreurs lors de la récupération des livres populaires (deuxième moitié)
       }
     };
 
+    // Appel des fonctions pour récupérer les données des nouveaux livres et des livres populaires
     fetchNewBooks();
     fetchPopularBooksFirstHalf();
     fetchPopularBooksSecondHalf();
   }, []);
 
+  // Rendu du composant Home
   return (
     <div className="home">
       <div className="content">
@@ -110,4 +118,4 @@ const Home = () => {
   );
 }; 
 
-export default Home;
+export default Home; 

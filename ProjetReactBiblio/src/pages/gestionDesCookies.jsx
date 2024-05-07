@@ -1,37 +1,38 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Définition du composant GestionDesCookies
 const GestionDesCookies = () => {
-
+  // État local pour gérer l'affichage du popup de gestion des cookies
   const [showPopup, setShowPopup] = useState(false);
 
+  // État local pour stocker les paramètres des cookies
   const [cookieSettings, setCookieSettings] = useState({
     analytics: false,
     marketing: false,
     preferences: false,
   });
 
-
+  // Fonction pour sauvegarder les paramètres des cookies dans le stockage local
   const saveCookieSettings = () => {
-
-    localStorage.setItem('cookieSettings', JSON.stringify(cookieSettings));
-
-    setShowPopup(false);
+    localStorage.setItem('cookieSettings', JSON.stringify(cookieSettings)); // Stockage des paramètres des cookies dans le stockage local
+    setShowPopup(false); // Masquage du popup de gestion des cookies
   };
 
-
+  // Fonction pour charger les paramètres des cookies depuis le stockage local
   const loadCookieSettings = () => {
-    const savedSettings = localStorage.getItem('cookieSettings');
+    const savedSettings = localStorage.getItem('cookieSettings'); // Récupération des paramètres des cookies depuis le stockage local
     if (savedSettings) {
-      setCookieSettings(JSON.parse(savedSettings));
+      setCookieSettings(JSON.parse(savedSettings)); // Mise à jour des paramètres des cookies avec les données récupérées
     }
   };
 
-
+  // Effet de side-effect pour charger les paramètres des cookies lors du premier rendu
   React.useEffect(() => {
     loadCookieSettings();
   }, []);
 
+  // Rendu du composant GestionDesCookies
   return (
     <div>
 
@@ -103,3 +104,5 @@ const GestionDesCookies = () => {
 };
 
 export default GestionDesCookies;
+
+
