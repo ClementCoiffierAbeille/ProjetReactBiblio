@@ -26,29 +26,28 @@ const DetailLivre = () => {
   }, [id]); // Déclenchez l'effet chaque fois que l'ID du livre change
 
   return (
-    <div className="detail-livre">
+    <div className="detail-livre-container-DL">
       {/* Affichez les détails du livre ici */}
       {bookDetails && (
         <>
-          <div className="book-details">
-            <h2>{bookDetails.volumeInfo.title}</h2>
-            <p>Auteur(s): {bookDetails.volumeInfo.authors && bookDetails.volumeInfo.authors.join(', ')}</p>
-            <p>Date de publication: {bookDetails.volumeInfo.publishedDate}</p>
-            <p>Pages: {bookDetails.volumeInfo.pageCount}</p>
-            <p>Catégorie(s): {bookDetails.volumeInfo.categories && bookDetails.volumeInfo.categories.join(', ')}</p>
-            <p>Langue: {bookDetails.volumeInfo.language}</p>
-            <p>ID du Livre: {id}</p>
+          <div className="book-details-DL">
+            <h2 className="book-title-DL">{bookDetails.volumeInfo.title}</h2>
+            <p className="book-info-DL">Auteur(s): {bookDetails.volumeInfo.authors && bookDetails.volumeInfo.authors.join(', ')}</p>
+            <p className="book-info-DL">Date de publication: {bookDetails.volumeInfo.publishedDate}</p>
+            <p className="book-info-DL">Pages: {bookDetails.volumeInfo.pageCount}</p>
+            <p className="book-info-DL">Catégorie(s): {bookDetails.volumeInfo.categories && bookDetails.volumeInfo.categories.join(', ')}</p>
+            <p className="book-info-DL">Langue: {bookDetails.volumeInfo.language}</p>
           </div>
-          <div className="book-cover">
+          <div className="book-cover-DL">
             {/* Affichez l'image de couverture du livre */}
             {bookDetails.volumeInfo.imageLinks && (
-              <img src={bookDetails.volumeInfo.imageLinks.thumbnail} alt="Couverture du livre" />
+              <img className="book-cover-img-DL" src={bookDetails.volumeInfo.imageLinks.thumbnail} alt="Couverture du livre" />
             )}
           </div>
-          <div className="description">
-            <h2>Description : </h2>
+          <div className="description-DL">
+            <h2 className="description-title-DL">Description : </h2>
             {/* Affichez la description du livre à partir des détails du livre */}
-            <p>{bookDetails.volumeInfo.description}</p>
+            <p className="description-text-DL" dangerouslySetInnerHTML={{ __html: bookDetails.volumeInfo.description }} />
           </div>
         </>
       )}

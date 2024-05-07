@@ -222,3 +222,55 @@ cursor: pointer;
     text-decoration: underline;
     color: #0056b3;
 }
+
+.detail-livre-container-DL {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.book-details-DL {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.book-title-DL {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.book-info-DL {
+  margin: 8px 0;
+}
+
+.book-cover-DL {
+  margin-bottom: 20px;
+}
+
+.book-cover-img-DL {
+  max-width: 200px;
+  height: auto;
+}
+
+.description-DL {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+}
+
+.description-title-DL {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.description-text-DL {
+  line-height: 1.6;
+}

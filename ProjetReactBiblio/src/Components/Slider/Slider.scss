@@ -17,13 +17,13 @@
   .slide {
     width: 100%;
     height: 100%;
-    transition: transform 2s ease; /* Transition sur la transformation */
+    transition: transform 2s ease; 
   }
   
   .prev {
     position: absolute;
     top: 50%;
-    left: 10px; /* Ajustez la valeur selon votre préférence */
+    left: 10px; 
     border: none;
     color: black;
     font-size: 1em;
@@ -34,7 +34,7 @@
   .next {
     position: absolute;
     top: 50%;
-    right: 10px; /* Ajustez la valeur selon votre préférence */
+    right: 10px; 
     border: none;
     color: black;
     font-size: 1em;
@@ -68,4 +68,5 @@
   .indicator.active {
     background-color: black;
   }
+  
   

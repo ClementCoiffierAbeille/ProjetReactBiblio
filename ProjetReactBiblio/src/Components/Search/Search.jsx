@@ -63,7 +63,9 @@ const Search = () => {
                 >
                   <Book books={[book]} />
                   {hoveredBook === book && (
-                    <div className="book-title">{book.volumeInfo.title}</div>
+                    <div className="book-title-box">
+                      <div className="book-title">{book.volumeInfo.title}</div>
+                    </div>
                   )}
                 </div>
               ))}

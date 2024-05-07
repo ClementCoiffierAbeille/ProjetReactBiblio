@@ -4,11 +4,11 @@ import './Slider.scss';
 const Slider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Effet pour déclencher le défilement automatique toutes les 5 secondes
+  
   useEffect(() => {
     const interval = setInterval(goToNext, 5000);
     return () => clearInterval(interval);
-  }, [currentIndex]); // Cette dépendance assure que le défilement automatique est réinitialisé à chaque changement de currentIndex
+  }, [currentIndex]); 
 
   const goToPrevious = () => {
     const index = currentIndex === 0 ? images.length - 1 : currentIndex - 1;

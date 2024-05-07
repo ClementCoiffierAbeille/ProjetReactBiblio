@@ -5,6 +5,7 @@
     text-align: center;
   }
   
+  
   input[type="text"] {
     width: 100%;
     padding: 10px;
@@ -43,5 +44,19 @@
     margin: 10px;
     width: 130px;
     height: 195px;
+  }
+  
+  .book-title-box {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .book-title {
+    margin: 0;
   }
   
