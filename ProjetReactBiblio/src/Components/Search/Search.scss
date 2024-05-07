@@ -14,7 +14,7 @@
     font-size: 16px;
   }
   
-  button {
+  .buttonSearch {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -24,7 +24,7 @@
     font-size: 16px;
   }
   
-  button:hover {
+  .buttonSearch:hover {
     background-color: #0056b3;
   }
   
@@ -34,6 +34,15 @@
     color: #666;
   }
   
-  div.book {
-    margin-top: 25px;
+  .book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
+  
+  div.book {
+    margin: 10px;
+    width: 130px;
+    height: 195px;
+  }
+  

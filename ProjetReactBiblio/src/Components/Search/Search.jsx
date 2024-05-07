@@ -3,10 +3,12 @@ import axios from 'axios';
 import Book from '../Book/Book.jsx';
 import Spinner from '../Spinner/Spinner.jsx';
 import './Search.scss';
+
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [hoveredBook, setHoveredBook] = useState(null);
 
   const handleSearch = async () => {
     setLoading(true);
@@ -28,6 +30,14 @@ const Search = () => {
     }
   };
 
+  const handleMouseEnter = (book) => {
+    setHoveredBook(book);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredBook(null);
+  };
+
   return (
     <div className="search-page">
       <input
@@ -35,15 +45,29 @@ const Search = () => {
         placeholder="Rechercher un livre..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyDown={handleKeyPress} // Ajoutez le gestionnaire d'événements onKeyDown
+        onKeyDown={handleKeyPress}
       />
-      <button onClick={handleSearch}>Rechercher</button>
+      <button className="buttonSearch" onClick={handleSearch}>Rechercher</button>
       {loading ? (
         <Spinner />
       ) : (
         <>
           {searchResults.length > 0 ? (
-            <Book books={searchResults} />
+            <div className="book-container">
+              {searchResults.map((book) => (
+                <div
+                  key={book.id}
+                  className="book"
+                  onMouseEnter={() => handleMouseEnter(book)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Book books={[book]} />
+                  {hoveredBook === book && (
+                    <div className="book-title">{book.volumeInfo.title}</div>
+                  )}
+                </div>
+              ))}
+            </div>
           ) : (
             <p>Aucun résultat trouvé pour cette recherche.</p>
           )}

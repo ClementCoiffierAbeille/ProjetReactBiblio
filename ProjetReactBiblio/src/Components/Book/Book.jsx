@@ -19,9 +19,6 @@ const Book = ({ books }) => {
             return (
               <div key={index} className="book" onClick={() => handleBookClick(item.id)}>
                 <img src={thumbnail} alt="" />
-                <div className="bottom">
-                  <h3 className="title">{item.volumeInfo.title}</h3>
-                </div>
               </div>
             );
           }
